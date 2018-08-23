@@ -37,5 +37,8 @@ function addTask(e) {
   //Append li To ul
   tasklist.appendChild(li);
 
+  //Clear Input After Adding A Task
+  taskInput = '';
+
   e.preventDefault();
 }
