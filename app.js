@@ -1,44 +1,45 @@
-// Get Elements From index.html
+// Define UI Vars
 const form = document.querySelector('#task-form');
-const tasklist = document.querySelector('.collection');
+const ultaskList = document.querySelector('.collection');
 const clearBtn = document.querySelector('.clear-tasks');
 const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
 
-// Load All Event Listeners
-loadAllEventListeners();
+// Load all event listeners
+loadEventListeners();
 
-function loadAllEventListeners() {
-  //Add task event
+// Load all event listeners
+function loadEventListeners() {
+  // Add task event
   form.addEventListener('submit', addTask);
 }
 
-//Add Task
+// Add Task
 function addTask(e) {
   if (taskInput.value === '') {
-    alert('Add A Task');
+    alert('Add a task');
   }
 
-  //Create li Element
+  // Create li element
   const li = document.createElement('li');
-  //Add A Class
+  // Add class
   li.className = 'collection-item';
-  //Create Text Node And Append It To li
+  // Create text node and append to li
   li.appendChild(document.createTextNode(taskInput.value));
-  //Create New Link Element. The X To The Right
+  // Create new link element
   const link = document.createElement('a');
-  //Add A class To The New Element. class secondary-content Needs To Get The Icon To The Right Of A List Item When You Use The Front-End FrameWork Metirializer
+  // Add class
   link.className = 'delete-item secondary-content';
-  //Add Icon To The html
-  link.innerHTML = '<i class = "fa fa-remove"></i>';
-  //Append The link To li
+  // Add icon html
+  link.innerHTML = '<i class="fa fa-remove"></i>';
+  // Append the link to li
   li.appendChild(link);
 
-  //Append li To ul
-  tasklist.appendChild(li);
+  // Append li to ul
+  ultaskList.appendChild(li);
 
-  //Clear Input After Adding A Task
-  taskInput = '';
+  // Clear input
+  taskInput.value = '';
 
   e.preventDefault();
 }
